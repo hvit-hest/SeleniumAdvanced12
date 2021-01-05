@@ -2,7 +2,7 @@ package org.courses.pages.createaccountpage;
 
 import org.courses.pages.common.CheckBox;
 import org.courses.pages.common.ComboBox;
-import org.courses.testdata.AccountFormData;
+import org.courses.pages.createaccountpage.data.AccountFormData;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;

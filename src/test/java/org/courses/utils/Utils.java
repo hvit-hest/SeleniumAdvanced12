@@ -5,7 +5,8 @@ import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.commons.lang3.StringUtils;
-import org.courses.testdata.MenuItemModel;
+import org.courses.pages.addnewproductpage.data.ProductDataModel;
+import org.courses.pages.adminpage.data.MenuItemModel;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -43,7 +44,7 @@ public class Utils {
     }
 
     public List<MenuItemModel> readMenuFromJson (String jsonArrayFile) {
-        Type MenuType = new TypeToken<List<MenuItemModel>>() {}.getType();
+        Type menuType = new TypeToken<List<MenuItemModel>>() {}.getType();
         Gson gson = new Gson();
         JsonReader reader = null;
         try  {
@@ -52,7 +53,20 @@ public class Utils {
         } catch (NullPointerException ioe) {
             System.err.println("Unable to read json file:" + jsonArrayFile);
         }
-        return gson.fromJson(reader, MenuType);
+        return gson.fromJson(reader, menuType);
+    }
+
+    public ProductDataModel readProductDataFromJson (String jsonArrayFile) {
+        Type productDataType = new TypeToken<ProductDataModel>() {}.getType();
+        Gson gson = new Gson();
+        JsonReader reader = null;
+        try  {
+            InputStream resourceAsStream = getClass().getClassLoader().getResourceAsStream(jsonArrayFile);
+            reader = new JsonReader(new InputStreamReader(resourceAsStream));
+        } catch (NullPointerException ioe) {
+            System.err.println("Unable to read json file:" + jsonArrayFile);
+        }
+        return gson.fromJson(reader, productDataType);
     }
 
     public static List<Integer> getNumberOfColor(String color) {
@@ -85,15 +99,19 @@ public class Utils {
     }
 
     public static String addressGenerator() {
+        return wordsGenerator();
+    }
+
+    public static String phoneGenerator() {
+        return String.format("+%s", RandomStringUtils.randomNumeric(8));
+    }
+
+    public static String wordsGenerator() {
         return String.format("%s %s %s %s",
                 RandomStringUtils.randomAlphanumeric(1, 15),
                 RandomStringUtils.randomAlphanumeric(1, 15),
                 RandomStringUtils.randomAlphanumeric(1, 15),
                 RandomStringUtils.randomAlphanumeric(1, 15));
-    }
-
-    public static String phoneGenerator() {
-        return String.format("+%s", RandomStringUtils.randomNumeric(8));
     }
 }
 

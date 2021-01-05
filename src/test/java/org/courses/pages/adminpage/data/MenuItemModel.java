@@ -1,4 +1,4 @@
-package org.courses.testdata;
+package org.courses.pages.adminpage.data;
 
 import java.util.ArrayList;
 

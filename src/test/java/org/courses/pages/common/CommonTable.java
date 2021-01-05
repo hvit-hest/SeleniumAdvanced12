@@ -71,7 +71,7 @@ public class CommonTable {
                 findElement(By.cssSelector("[selected]")).getText().trim()).collect(toList());
     }
 
-    private List<WebElement> getCellsByText(String textInCell) {
+    public List<WebElement> getCellsByText(String textInCell) {
         return getTable().findElements(cellBy).stream().
                 filter(c -> c.getText().equals(textInCell)).collect(Collectors.toList());
     }
@@ -80,7 +80,7 @@ public class CommonTable {
         return getCellsByText(textInCell).get(0);
     }
 
-    private List<WebElement> getRowsByText(String textInCell) {
+    public List<WebElement> getRowsByText(String textInCell) {
         return getRows().stream().filter(r -> r.getText().contains(textInCell)).collect(Collectors.toList());
     }
 

@@ -5,7 +5,7 @@ import org.courses.pages.common.CommonTable;
 import org.courses.pages.createaccountpage.CreateAccountPage;
 import org.courses.pages.mainpage.MainPage;
 import org.courses.pages.securitysettingspage.SecuritySettingsPage;
-import org.courses.testdata.AccountFormData;
+import org.courses.pages.createaccountpage.data.AccountFormData;
 import org.courses.utils.Utils;
 import org.courses.utils.WebDriverSelection;
 import org.openqa.selenium.By;

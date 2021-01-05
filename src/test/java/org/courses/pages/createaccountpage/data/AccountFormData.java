@@ -1,4 +1,4 @@
-package org.courses.testdata;
+package org.courses.pages.createaccountpage.data;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.courses.utils.Utils;
 
