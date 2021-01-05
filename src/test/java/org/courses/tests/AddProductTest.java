@@ -2,9 +2,6 @@ package org.courses.tests;
 
 import org.courses.pages.addnewproductpage.AddNewProductPage;
 import org.courses.pages.addnewproductpage.components.NewProductTabs;
-import org.courses.pages.addnewproductpage.data.GeneralDataModel;
-import org.courses.pages.addnewproductpage.data.InformationDataModel;
-import org.courses.pages.addnewproductpage.data.PricesDataModel;
 import org.courses.pages.addnewproductpage.data.ProductDataModel;
 import org.courses.pages.adminpage.AdminPage;
 import org.courses.pages.catalogpage.CatalogPage;
@@ -49,7 +46,7 @@ public class AddProductTest {
         CatalogPage catalogPage = new CatalogPage(myPersonalDriver);
         catalogPage.clickAddNewProductButton();
         AddNewProductPage addNewProductPage = new AddNewProductPage(myPersonalDriver);
-        //there is explicit wait in fill forms methods
+        //explicit wait in all 'fill forms' methods was used before putting data into forms
         addNewProductPage.getGeneralSection().fillFormProductGeneral(generalData);
         addNewProductPage.openTab(NewProductTabs.INFORMATION);
         addNewProductPage.getInformationSection().fillFormProductInformation(informationData);
@@ -57,9 +54,9 @@ public class AddProductTest {
         addNewProductPage.getPricesSection().fillFormProductPrices(pricesData);
         addNewProductPage.clickButtonSave();
         catalogPage = new CatalogPage(myPersonalDriver);
-        
+
         Assert.assertTrue(catalogPage.getCatalogTable().
-                getCellsByText((String) generalData.get("name")).size()>0,
+                        getCellsByText((String) generalData.get("name")).size() > 0,
                 String.format("Duck '%s' is not found", generalData.get("name")));
     }
 
