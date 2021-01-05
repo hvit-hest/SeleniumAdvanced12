@@ -45,7 +45,7 @@ public class GeneralSection {
     public void fillFormProductGeneral(LinkedHashMap<String, Object> generalData) {
 
         Wait<WebDriver> wait = new WebDriverWait(driverHere, 5);
-        wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(dataValidToCalendarBy));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(dataValidToCalendarBy));
 
         generalData.entrySet().forEach(data -> {
             Object dataValue = data.getValue();

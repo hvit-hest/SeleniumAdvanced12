@@ -36,7 +36,7 @@ public class InformationSection {
     public void fillFormProductInformation(LinkedHashMap<String, String> informationData) {
 
         Wait<WebDriver> wait = new WebDriverWait(driverHere, 5);
-        wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(metaDescriptionFieldBy));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(metaDescriptionFieldBy));
 
         informationData.entrySet().forEach(data -> {
             String dataValue = data.getValue();

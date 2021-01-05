@@ -32,7 +32,7 @@ public class PricesSection {
     public void fillFormProductPrices(LinkedHashMap<String, String> pricesData) {
 
         Wait<WebDriver> wait = new WebDriverWait(driverHere, 5);
-        wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(priceEUROFieldBy));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(priceEUROFieldBy));
 
         pricesData.entrySet().forEach(data -> {
             String dataValue = data.getValue();
